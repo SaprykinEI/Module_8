@@ -20,12 +20,17 @@ class TestStack(unittest.TestCase):
         self.assertEqual(self.stack.top, None)
 
     def test_02_push(self):
+        '''Тестируем заполняемость stack'''
+
         self.stack.push(1)
         self.stack.push(2)
         self.assertLessEqual(self.stack.size_stack(), self.stack.stack_size)
         self.assertEqual(self.stack.top.data, 2)
 
     def test_03_pop(self):
+        '''Тестируем удаление данных из stack'''
+
+
         self.assertTrue(self.stack.top.data)
         self.stack.pop()
         self.assertEqual(self.stack.top.data, 1)
@@ -33,12 +38,16 @@ class TestStack(unittest.TestCase):
         self.assertEqual(self.stack.pop(), "Стэк пуст")
 
     def test_04_is_empty(self):
+        '''Тестируем пустой stack'''
+
         self.stack.push('data_1')
         self.assertFalse(self.stack.is_empty())
         self.stack.pop()
         self.assertTrue(self.stack.is_empty())
 
     def test_05_full(self):
+        '''Тестируем метод на полную заполненность stack'''
+
         self.stack.push(1)
         self.stack.push(2)
         self.stack.push(3)
@@ -50,11 +59,15 @@ class TestStack(unittest.TestCase):
         self.assertFalse(self.stack.is_full())
 
     def test_06_clear_stack(self):
+        '''Тестируем метод на полную очистку stack'''
+
         self.assertFalse(self.stack.is_empty())
         self.stack.clear_stack()
         self.assertTrue(self.stack.is_empty())
 
     def test_07_get_data(self):
+        '''Тестируем метод на получение данных по индексу в stack'''
+
         self.stack.push(1)
         self.stack.push(2)
         self.assertEqual(self.stack.get_data(0), 2)
@@ -63,9 +76,13 @@ class TestStack(unittest.TestCase):
         self.assertEqual(self.stack.get_data(-1), 'Out of range')
 
     def test_08_size_stack(self):
+        '''Тестируем размерность stack'''
+
         self.assertEqual(self.stack.size_stack(), 2)
 
     def test_09_counter_int(self):
+        '''Тестируем метод на подсчет целых чисел в stack'''
+
         self.stack.push('string')
         self.stack.push(3)
         self.stack.push(3.5)
